@@ -23,6 +23,9 @@ Installing the required packages from requirements.txt﻿:
 ## Description
 
 In config.py you should change BASE_URL. For example, if you are in Moscow it will be "https://msk.quiz-please.com/{}", сheck your link at https://quizplease.com/
+
 To check for available games, run main.py.
+
 In registration.py, you should fill in the information about your team: team name, captain name, email, phone, number of teammates, and Telegram account.
+
 To register for all available games, run registration.py.
