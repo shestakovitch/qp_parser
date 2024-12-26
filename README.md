@@ -1,4 +1,4 @@
-# Парсер игр Квиз, плиз!
+# Квиз, плиз! games parser
 
 
 ## Installation
