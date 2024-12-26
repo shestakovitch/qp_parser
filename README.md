@@ -20,11 +20,6 @@ Installing the required packages from requirements.txt﻿:
 
 ```pip3 install -r requirements.txt```
 
-You should register on https://www.weatherapi.com/
-
-Create ".env" file or rename ".env.example" and put API Key on it.
-
-
 ## Description
 
 You can add and remove cities using the corresponding buttons
