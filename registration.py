@@ -30,11 +30,11 @@ def main():
         if game not in registered_games:
             registered_games[game] = link
 
-        # Подменяем User-Agent
-        user = fake_user_agent.user_agent()
-        header = {
-            'User-Agent': user
-        }
+            # Подменяем User-Agent
+            user = fake_user_agent.user_agent()
+            header = {
+                'User-Agent': user
+            }
 
         # Словарь с данными для регистрации на игру
         data = {
