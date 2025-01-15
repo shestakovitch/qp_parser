@@ -74,12 +74,12 @@ def main():
                 with open("registered_games.json", "w") as file:
                     json.dump(registered_games, file, indent=4, ensure_ascii=False)
 
-            print(f'Вы зарегистрировались на игру {game}\n'
-                  f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n')
+                print(f'Вы зарегистрировались на игру {game}\n'
+                      f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n')
+            else:
+                print(f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}")
         else:
-            print(f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}")
-    else:
-        print(f"Вы уже зарегистрировались на игру: \n{game}\n")
+            print(f"Вы уже зарегистрировались на игру: \n{game}\n")
 
 
 if __name__ == "__main__":
