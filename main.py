@@ -1,7 +1,6 @@
 from scraper import fetch_page
 from game_info import get_game_status, available_links
 from config import BASE_URL, STATUS_DATA
-from datetime import datetime
 
 
 def main():
