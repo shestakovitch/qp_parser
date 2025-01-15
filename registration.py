@@ -5,7 +5,10 @@ import fake_user_agent
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 
-load_dotenv()
+
+def main():
+    # Загружаем данные для регистрации из файла .env
+    load_dotenv()
 
 TEAM_NAME = os.getenv('TEAM_NAME')
 CAPTAIN_NAME = os.getenv('CAPTAIN_NAME')
