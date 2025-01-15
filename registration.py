@@ -77,3 +77,7 @@ for game, link in available_games.items():
             print(f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}")
     else:
         print(f"Вы уже зарегистрировались на игру: \n{game}\n")
+
+
+if __name__ == "__main__":
+    main()
