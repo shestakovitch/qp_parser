@@ -36,25 +36,25 @@ def main():
                 'User-Agent': user
             }
 
-        # Словарь с данными для регистрации на игру
-        data = {
-            "record-from-form": "1",
-            "QpRecord[teamName]": "", # Впишите название команды
-            "QpRecord[captainName]": "", # Впишите имя капитана
-            "QpRecord[email]": "", # Впишите email
-            "QpRecord[phone]": "", # Впишите номер телефона
-            "QpRecord[count]": "", # Впишите количество человек
-            "QpRecord[comment]": "",
-            "QpRecord[custom_fields_values]": "[{\"name\":\"50d1d4c5-4b3d-4027-b577-01e26b4919f6\",\"type\":\"text\","
-                                              "\"label\":\"ваш+ник+в+telegram\",\"placeholder\":\"\","
-                                              "\"value\":\"@YourTelegram\"}]", # Впишите телеграм аккаунт
-            "QpRecord[first_time]": "0",
-            "certificates[]": "",
-            "QpRecord[game_id]": link.split("id=")[1],
-            "QpRecord[max_people_active]": "1",
-            "reservation": "",
-            "QpRecord[site_content_id]": ""
-        }
+            # Словарь с данными для регистрации на игру
+            data = {
+                "record-from-form": "1",
+                "QpRecord[teamName]": "",  # Впишите название команды
+                "QpRecord[captainName]": "",  # Впишите имя капитана
+                "QpRecord[email]": "",  # Впишите email
+                "QpRecord[phone]": "",  # Впишите номер телефона
+                "QpRecord[count]": "",  # Впишите количество человек
+                "QpRecord[comment]": "",
+                "QpRecord[custom_fields_values]": "[{\"name\":\"50d1d4c5-4b3d-4027-b577-01e26b4919f6\",\"type\":\"text\","
+                                                  "\"label\":\"ваш+ник+в+telegram\",\"placeholder\":\"\","
+                                                  "\"value\":\"@YourTelegram\"}]",  # Впишите телеграм аккаунт
+                "QpRecord[first_time]": "0",
+                "certificates[]": "",
+                "QpRecord[game_id]": link.split("id=")[1],
+                "QpRecord[max_people_active]": "1",
+                "reservation": "",
+                "QpRecord[site_content_id]": ""
+            }
 
         # Передаём ссылку, словарь data и headers в POST запрос
         response = requests.post(link, data=data, headers=header)
