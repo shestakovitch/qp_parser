@@ -61,11 +61,11 @@ def main():
 
             soup = BeautifulSoup(response.text, "lxml")
 
-        # Проверяем ссылку
-        try:
-            alert = soup.find("div", class_="alert alert-danger").text.strip()
-        except AttributeError:
-            alert = "no errors"
+            # Проверяем ссылку
+            try:
+                alert = soup.find("div", class_="alert alert-danger").text.strip()
+            except AttributeError:
+                alert = "no errors"
 
         # Если код ответа 200 и нет alerta выводим сообщение об успешной регистрации
         if response.status_code == 200 and alert == "no errors":
