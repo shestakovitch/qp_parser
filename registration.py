@@ -59,7 +59,7 @@ def main():
             # Передаём ссылку, словарь data и headers в POST запрос
             response = requests.post(link, data=data, headers=header)
 
-        soup = BeautifulSoup(response.text, "lxml")
+            soup = BeautifulSoup(response.text, "lxml")
 
         # Проверяем ссылку
         try:
