@@ -17,9 +17,9 @@ def main():
     NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
     TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
 
-# Открываем файл с информацией об играх на которые можно записаться
-with open("available_games.json") as file:
-    available_games = json.load(file)
+    # Открываем файл с информацией об играх на которые можно записаться
+    with open("available_games.json") as file:
+        available_games = json.load(file)
 
 with open("registered_games.json") as file:
     registered_games = json.load(file)
