@@ -70,9 +70,9 @@ def main():
             # Если код ответа 200 и нет alerta выводим сообщение об успешной регистрации
             if response.status_code == 200 and alert == "no errors":
 
-            # Перезаписываем json с играми на которые уже зарегистрировались
-            with open("registered_games.json", "w") as file:
-                json.dump(registered_games, file, indent=4, ensure_ascii=False)
+                # Перезаписываем json с играми на которые уже зарегистрировались
+                with open("registered_games.json", "w") as file:
+                    json.dump(registered_games, file, indent=4, ensure_ascii=False)
 
             print(f'Вы зарегистрировались на игру {game}\n'
                   f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n')
