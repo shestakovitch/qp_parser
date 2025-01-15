@@ -67,8 +67,8 @@ def main():
             except AttributeError:
                 alert = "no errors"
 
-        # Если код ответа 200 и нет alerta выводим сообщение об успешной регистрации
-        if response.status_code == 200 and alert == "no errors":
+            # Если код ответа 200 и нет alerta выводим сообщение об успешной регистрации
+            if response.status_code == 200 and alert == "no errors":
 
             # Перезаписываем json с играми на которые уже зарегистрировались
             with open("registered_games.json", "w") as file:
