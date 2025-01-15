@@ -26,9 +26,9 @@ def main():
 
     for game, link in available_games.items():
 
-    # Если игры нет в словаре с играми на которые уже зарегистрировались - добавляем эту игру в словарь
-    if game not in registered_games:
-        registered_games[game] = link
+        # Если игры нет в словаре с играми на которые уже зарегистрировались - добавляем эту игру в словарь
+        if game not in registered_games:
+            registered_games[game] = link
 
         # Подменяем User-Agent
         user = fake_user_agent.user_agent()
