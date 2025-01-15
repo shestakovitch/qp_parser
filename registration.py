@@ -21,8 +21,8 @@ def main():
     with open("available_games.json") as file:
         available_games = json.load(file)
 
-with open("registered_games.json") as file:
-    registered_games = json.load(file)
+    with open("registered_games.json") as file:
+        registered_games = json.load(file)
 
 for game, link in available_games.items():
 
