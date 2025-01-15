@@ -24,7 +24,7 @@ def main():
     with open("registered_games.json") as file:
         registered_games = json.load(file)
 
-for game, link in available_games.items():
+    for game, link in available_games.items():
 
     # Если игры нет в словаре с играми на которые уже зарегистрировались - добавляем эту игру в словарь
     if game not in registered_games:
