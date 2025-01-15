@@ -56,8 +56,8 @@ def main():
                 "QpRecord[site_content_id]": ""
             }
 
-        # Передаём ссылку, словарь data и headers в POST запрос
-        response = requests.post(link, data=data, headers=header)
+            # Передаём ссылку, словарь data и headers в POST запрос
+            response = requests.post(link, data=data, headers=header)
 
         soup = BeautifulSoup(response.text, "lxml")
 
