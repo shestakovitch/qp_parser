@@ -2,7 +2,16 @@ import json
 import requests
 import fake_user_agent
 from bs4 import BeautifulSoup
-from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TEAM_NAME = os.getenv('TEAM_NAME')
+CAPTAIN_NAME = os.getenv('CAPTAIN_NAME')
+EMAIL = os.getenv('EMAIL')
+PHONE = os.getenv('PHONE')
+NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
+TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
 
 # Открываем файл с информацией об играх на которые можно записаться
 with open("available_games.json") as file:
