@@ -83,6 +83,8 @@ def main():
         else:
             print(f"Вы уже зарегистрировались на игру: \n{game}\n")
 
+    print(f"\n{'-' * 79}")
+
 
 if __name__ == "__main__":
     main()

@@ -26,6 +26,7 @@ def main():
             print("\nК сожалению нет игр на которые можно записаться")
     except Exception as e:
         print(f"Ошибка: {e}")
+    print(f"\n{'-' * 79}")
 
 
 if __name__ == "__main__":
