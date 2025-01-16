@@ -4,6 +4,7 @@ import requests
 import fake_user_agent
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
+from game_info import available_games
 
 
 def main():
@@ -17,10 +18,7 @@ def main():
     NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
     TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
 
-    # Открываем файл с информацией об играх на которые можно записаться
-    with open("available_games.json") as file:
-        available_games = json.load(file)
-
+    # Открываем файл с играми на которые уже зарегистрировались
     with open("registered_games.json") as file:
         registered_games = json.load(file)
 

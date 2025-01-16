@@ -1,7 +1,7 @@
 from config import BASE_URL, STATUS_DATA
 import json
 
-available_links = {}  # Словарь для хранения игр на которые можно записаться и ссылок на них
+available_games = {}  # Словарь для хранения игр на которые можно записаться и ссылок на них
 
 
 def get_game_info(soup, color, status):
@@ -31,13 +31,13 @@ def get_game_info(soup, color, status):
 
         # Если статус игры active или end, то добавляем ссылки в список available_links
         if status in ('active', 'end'):
-            available_links[f"{game_date} {game_name} {game_number}"] = link
+            available_games[f"{game_date} {game_name} {game_number}"] = link
 
     print(f"\n{'-'*79}")
 
     # Записываем информацию об играх в json файл
     with open("available_games.json", "w") as file:
-        json.dump(available_links, file, indent=4, ensure_ascii=False)
+        json.dump(available_games, file, indent=4, ensure_ascii=False)
 
 def get_game_status(soup, status):
     """
