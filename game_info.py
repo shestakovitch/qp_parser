@@ -26,12 +26,17 @@ def get_game_info(soup, color, status):
         # Находим номер игры
         game_number = h3.find_next('div', class_='h2 h2-game-card').text.strip()
 
+        # Находим время игры
+        schedule_info = h3.find_next('div', class_='schedule-info')
+        game_time = schedule_info.find_next('div', class_='schedule-info').find_next('div',
+                                                                                     class_='techtext').text.strip()
+
         # Выводим информацию об игре
-        print(f"{game_date}\n{game_name}{game_number}")
+        print(f"{game_date} {game_time}\n{game_name}{game_number}")
 
         # Если статус игры active или end, то добавляем ссылки в список available_links
         if status in ('active', 'end'):
-            available_games[f"{game_date} {game_name} {game_number}"] = link
+            available_games[f"{game_date} {game_time}\n{game_name} {game_number}"] = link
 
     print(f"\n{'-'*79}")
 
