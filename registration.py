@@ -5,6 +5,7 @@ import fake_user_agent
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from game_info import available_games
+from sender import send_message
 
 
 def main():
@@ -74,6 +75,9 @@ def main():
 
                 print(f'Вы зарегистрировались на игру {game}\n'
                       f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n')
+
+                # Отправляем сообщение о регистрации в телеграм, если не требуется - закомментировать строку ниже
+                send_message(f'Вы зарегистрировались на игру:\n{game}')
             else:
                 print(f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}")
         else:
