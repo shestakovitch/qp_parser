@@ -24,9 +24,12 @@ Installing the required packages from requirements.txt﻿:
 
 In config.py you should change BASE_URL. For example, if you are in Moscow it will be "https://msk.quiz-please.com/{}", сheck your link at https://quizplease.com/.
 
-You should rename .env.example file to .env, and fill in the information about your team: team name, captain name, email, phone, number of teammates, and Telegram account.
+You should rename .env.example file to .env, and fill in the information about your team: team name, captain name, email, phone, number of teammates, and Telegram account. To send registration messages you should fill in BOT_TOKEN and CHAT_ID.
 
-Run main.py to check for available games. Information about available games will be saved in the file available_games.json.
+When you run main.py:
 
-Registration.py compares registered_games.json and available_games.json. If registered_games.json is empty you will be registered for all available games in the city you specified in BASE_URL.
+1. It checks the games and prints them by category to the terminal (available games, games for which you can register as a reserve, games for which registration is closed)
+2. Games for which registration is not closed are saved to the file available_games.json and passed on to registration.py
+3. If the game is not in the registered_games.json file, you will be registered for it. If registered_games.json is empty you will be registered for all available games in the city you specified in BASE_URL
+
 
