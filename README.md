@@ -22,9 +22,17 @@ Installing the required packages from requirements.txt﻿:
 
 ## Description
 
-In config.py you should change BASE_URL. For example, if you are in Moscow it will be "https://msk.quiz-please.com/{}", сheck your link at https://quizplease.com/.
+You should rename .env.example file to .env, and fill in the information about your team: team name, captain name, email, phone, number of teammates, and Telegram account.
 
-You should rename .env.example file to .env, and fill in the information about your team: team name, captain name, email, phone, number of teammates, and Telegram account. To send registration messages you should fill in BOT_TOKEN and CHAT_ID.
+You should create a new bot in @BotFather:
+
+https://core.telegram.org/bots/features#creating-a-new-bot
+
+Insert API Token into BOT_TOKEN in the .env file.
+
+Find this bot @username_to_id_bot in Telegram, select the chat or channel you want to receive game registration or error messages and it will give you a Chat id. Paste this Chat id into CHAT_ID in the .env file
+
+In config.py you should change BASE_URL. For example, if you are in Moscow it will be "https://msk.quiz-please.com/{}", сheck your link at https://quizplease.com/.
 
 When you run main.py:
 
