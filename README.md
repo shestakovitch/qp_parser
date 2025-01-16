@@ -39,6 +39,6 @@ When you run main.py:
 
 1. It checks the games and prints them by category to the terminal (available games, games for which you can register as a reserve, games for which registration is closed)
 2. Games for which registration is not closed are saved to the file available_games.json and passed on to registration.py
-3. If the game is not in the registered_games.json file, you will be registered for it. If registered_games.json is empty you will be registered for all available games in the city you specified in BASE_URL
+3. If the game is not in the registered_games.json file, you will be registered for it, the corresponding message will be print in the terminal and sent to Telegram. If registered_games.json is empty you will be registered for all available games.
 
 
