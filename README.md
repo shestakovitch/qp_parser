@@ -34,6 +34,7 @@ Find this bot @username_to_id_bot in Telegram, select the chat or channel you wa
 
 In config.py you should change BASE_URL. For example, if you are in Moscow it will be "https://msk.quiz-please.com/{}", сheck your link at https://quizplease.com/.
 
+
 When you run main.py:
 
 1. It checks the games and prints them by category to the terminal (available games, games for which you can register as a reserve, games for which registration is closed)
