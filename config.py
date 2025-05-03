@@ -1,3 +1,16 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+# Загружаем данные для регистрации из файла .env
+TEAM_NAME = os.getenv('TEAM_NAME')
+CAPTAIN_NAME = os.getenv('CAPTAIN_NAME')
+EMAIL = os.getenv('EMAIL')
+PHONE = os.getenv('PHONE')
+NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
+TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
+
 # URL страницы
 BASE_URL = "https://beg.quiz-please.com/{}"
 

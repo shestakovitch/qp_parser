@@ -3,22 +3,12 @@ import json
 import requests
 import fake_user_agent
 from bs4 import BeautifulSoup
-from dotenv import load_dotenv
 from game_info import available_games
+from config import TEAM_NAME, CAPTAIN_NAME, EMAIL, PHONE, NUMBER_OF_PLAYERS, TELEGRAM_NAME
 from sender import send_message
 
 
 def main():
-    # Загружаем данные для регистрации из файла .env
-    load_dotenv()
-
-    TEAM_NAME = os.getenv('TEAM_NAME')
-    CAPTAIN_NAME = os.getenv('CAPTAIN_NAME')
-    EMAIL = os.getenv('EMAIL')
-    PHONE = os.getenv('PHONE')
-    NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
-    TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
-
     # Открываем файл с играми на которые уже зарегистрировались
     with open("registered_games.json") as file:
         registered_games = json.load(file)
