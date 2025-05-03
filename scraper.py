@@ -14,10 +14,17 @@ def fetch_page(url):
         'User-Agent': user
     }
 
-    response = requests.get(url, headers=headers)
+    try:
+        # Добавляем таймаут в 5 секунд
+        response = requests.get(url, headers=headers, timeout=5)
 
-    # Если код ответа 200 - записываем результат response в HTML файл и передаём для дальнейшего парсинга
-    if response.status_code == 200:
-        return BeautifulSoup(response.text, "lxml")
-    else:
-        raise Exception(f"Не удалось загрузить страницу. Статус: {response.status_code}")
+        # Если код ответа 200 - записываем результат response в HTML файл и передаём для дальнейшего парсинга
+        if response.status_code == 200:
+            return BeautifulSoup(response.text, "lxml")
+        else:
+            raise Exception(f"Не удалось загрузить страницу. Статус: {response.status_code}")
+
+    except requests.exceptions.Timeout:
+        raise Exception("Страница недоступна. Превышено время ожидания (5 секунд).")
+    except (requests.exceptions.ConnectionError, requests.exceptions.RequestException) as e:
+        raise Exception(f"Страница недоступна. Ошибка соединения: {str(e)}")

@@ -11,6 +11,10 @@ PHONE = os.getenv('PHONE')
 NUMBER_OF_PLAYERS = os.getenv('NUMBER_OF_PLAYERS')
 TELEGRAM_NAME = os.getenv('TELEGRAM_NAME')
 
+# Загружаем данные для отправки в telegram
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+CHAT_ID = os.getenv('CHAT_ID')
+
 # URL страницы
 BASE_URL = "https://beg.quiz-please.com/{}"
 

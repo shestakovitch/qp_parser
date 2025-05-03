@@ -1,4 +1,3 @@
-import os
 import json
 import requests
 import fake_user_agent
@@ -28,15 +27,15 @@ def main():
             # Словарь с данными для регистрации на игру
             data = {
                 "record-from-form": "1",
-                "QpRecord[teamName]": "",  # Впишите название команды
-                "QpRecord[captainName]": "",  # Впишите имя капитана
-                "QpRecord[email]": "",  # Впишите email
-                "QpRecord[phone]": "",  # Впишите номер телефона
-                "QpRecord[count]": "",  # Впишите количество человек
+                "QpRecord[teamName]": TEAM_NAME,
+                "QpRecord[captainName]": CAPTAIN_NAME,
+                "QpRecord[email]": EMAIL,
+                "QpRecord[phone]": PHONE,
+                "QpRecord[count]": NUMBER_OF_PLAYERS,
                 "QpRecord[comment]": "",
                 "QpRecord[custom_fields_values]": "[{\"name\":\"50d1d4c5-4b3d-4027-b577-01e26b4919f6\",\"type\":\"text\","
                                                   "\"label\":\"ваш+ник+в+telegram\",\"placeholder\":\"\","
-                                                  "\"value\":\"@YourTelegram\"}]",  # Впишите телеграм аккаунт
+                                                  f'"\"value\": "{TELEGRAM_NAME}"}}]',
                 "QpRecord[first_time]": "0",
                 "certificates[]": "",
                 "QpRecord[game_id]": link.split("id=")[1],
