@@ -8,13 +8,13 @@ from sender import send_message
 
 
 def main():
-    # Открываем файл с играми на которые уже зарегистрировались
+    # Открываем файл с играми, на которые уже зарегистрировались
     with open("registered_games.json") as file:
         registered_games = json.load(file)
 
     for game, link in available_games.items():
 
-        # Если игры нет в словаре с играми на которые уже зарегистрировались - добавляем эту игру в словарь
+        # Если игры нет в словаре с играми, на которые уже зарегистрировались, — добавляем эту игру в словарь
         if game not in registered_games:
             registered_games[game] = link
 
@@ -55,10 +55,10 @@ def main():
             except AttributeError:
                 alert = "no errors"
 
-            # Если код ответа 200 и нет alerta выводим сообщение об успешной регистрации
+            # Если код ответа 200 и нет alerta, выводим сообщение об успешной регистрации
             if response.status_code == 200 and alert == "no errors":
 
-                # Перезаписываем json с играми на которые уже зарегистрировались
+                # Перезаписываем json с играми, на которые уже зарегистрировались
                 with open("registered_games.json", "w") as file:
                     json.dump(registered_games, file, indent=4, ensure_ascii=False)
 

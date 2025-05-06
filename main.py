@@ -17,7 +17,7 @@ def main():
         for status in STATUS_DATA:
             get_game_status(soup, status)
 
-        # Вывод ссылок на игры если они есть
+        # Вывод ссылок на игры, если они есть
         if available_games:
             print(f"\n{'-' * 79}\nИгры на которые можно записаться (также сохранены в файл available_games.json):\n")
             for k, v in available_games.items():
