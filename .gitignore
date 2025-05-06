@@ -4,3 +4,4 @@
 .idea/
 __pycache__/
 available_games.json
+registered_games.json
