@@ -1,5 +1,6 @@
 import json
 from config import BASE_URL, STATUS_DATA
+import urllib.parse
 
 available_games = {}
 
@@ -16,16 +17,23 @@ def get_game_info(soup, color, status):
         game_date = game.text.strip()
         game_name = game.find_next('div', class_='h2 h2-game-card h2-left').text.strip()
         game_number = game.find_next('div', class_='h2 h2-game-card').text.strip()
+        bar_name = game.find_next('div', class_='schedule-block-info-bar').text.strip()
+        address_div = soup.find('div', class_='techtext techtext-halfwhite')
+        for a in address_div.find_all('a'):
+            a.extract()  # удаляем <a> из дерева
+        bar_address = address_div.get_text(strip=True)
+        google_maps_link = f"https://www.google.com/maps/search/?q={urllib.parse.quote(bar_address)}"
+
         game_time = game.find_next('div', class_='schedule-info').find_next('div', class_='schedule-info').find_next(
             'div', class_='techtext').text.strip()
 
         link_path = game.find_next('a', class_='schedule-block-head w-inline-block')['href']
         link = BASE_URL.format(link_path.lstrip('/'))
 
-        print(f"{game_date} {game_time}\n{game_name} {game_number}")
+        print(f"{game_date} {game_time}\n{game_name} {game_number}\n{bar_name}\n{google_maps_link}")
 
         if status in ('active', 'end'):
-            available_games[f"{game_date} {game_time}\n{game_name} {game_number}"] = link
+            available_games[f"{game_date} {game_time}\n{game_name} {game_number}\n{bar_name}\n{google_maps_link}"] = link
 
     print(f"\n{'-' * 79}")
 
