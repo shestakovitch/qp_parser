@@ -1,30 +1,37 @@
 import json
+import logging
+
 import requests
 import fake_user_agent
 from bs4 import BeautifulSoup
 from game_info import available_games
 from config import TEAM_NAME, CAPTAIN_NAME, EMAIL, PHONE, NUMBER_OF_PLAYERS, TELEGRAM_NAME
 from sender import send_message
+from logger import setup_logging
+
+logger = logging.getLogger(__name__)
 
 
 def main():
-    # Открываем файл с играми, на которые уже зарегистрировались
+    if not available_games:
+        logger.info("Регистрация пропущена: нет доступных игр")
+        return
+
     with open("registered_games.json") as file:
         registered_games = json.load(file)
 
+    logger.info("Начало регистрации, доступно игр: %d", len(available_games))
+
     for game, link in available_games.items():
 
-        # Если игры нет в словаре с играми, на которые уже зарегистрировались, — добавляем эту игру в словарь
         if game not in registered_games:
             registered_games[game] = link
 
-            # Подменяем User-Agent
             user = fake_user_agent.user_agent()
             header = {
                 'User-Agent': user
             }
 
-            # Словарь с данными для регистрации на игру
             data = {
                 "record-from-form": "1",
                 "QpRecord[teamName]": TEAM_NAME,
@@ -44,36 +51,41 @@ def main():
                 "QpRecord[site_content_id]": ""
             }
 
-            # Передаём ссылку, словарь data и headers в POST запрос
+            logger.info("Регистрация на игру: %s", link)
             response = requests.post(link, data=data, headers=header)
+            logger.debug("Ответ регистрации: статус %d", response.status_code)
 
             soup = BeautifulSoup(response.text, "lxml")
 
-            # Проверяем ссылку
             try:
                 alert = soup.find("div", class_="alert alert-danger").text.strip()
             except AttributeError:
                 alert = "no errors"
 
-            # Если код ответа 200 и нет alerta, выводим сообщение об успешной регистрации
             if response.status_code == 200 and alert == "no errors":
-
-                # Перезаписываем json с играми, на которые уже зарегистрировались
                 with open("registered_games.json", "w") as file:
                     json.dump(registered_games, file, indent=4, ensure_ascii=False)
 
-                print(f'Вы зарегистрировались на игру {game}\n'
-                      f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n')
+                success_msg = (
+                    f'Вы зарегистрировались на игру {game}\n'
+                    f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n'
+                )
+                print(success_msg)
+                logger.info(success_msg.strip())
 
-                # Отправляем сообщение о регистрации в телеграм, если не требуется - закомментировать строку ниже
                 send_message(f'Вы зарегистрировались на игру:\n{game}')
             else:
-                print(f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}")
+                error_msg = f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}"
+                print(error_msg)
+                logger.error(error_msg)
         else:
-            print(f"Вы уже зарегистрировались на игру: \n{game}\n")
+            already_msg = f"Вы уже зарегистрировались на игру: \n{game}\n"
+            print(already_msg)
+            logger.info(already_msg.strip())
 
     print(f"\n{'-' * 79}")
 
 
 if __name__ == "__main__":
+    setup_logging()
     main()
