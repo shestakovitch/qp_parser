@@ -1,7 +1,7 @@
 name: Run every hour
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "*/5 * * * *"
 env:
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHAT_ID: ${{ secrets.CHAT_ID }}
