@@ -1,6 +1,7 @@
 name: Run every hour
 on:
-  push:
+  schedule:
+    - cron: "0 * * * *"
 env:
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHAT_ID: ${{ secrets.CHAT_ID }}
