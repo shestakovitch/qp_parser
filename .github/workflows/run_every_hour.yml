@@ -14,6 +14,8 @@ env:
 jobs:
   run_every_hour:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out repository code
         uses: actions/checkout@v6
@@ -21,3 +23,14 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run App
         run: python3 main.py
+      - name: Save registered games
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add registered_games.json
+          if git diff --staged --quiet; then
+            echo "Нет изменений в registered_games.json"
+          else
+            git commit -m "Update registered_games.json"
+            git push
+          fi
