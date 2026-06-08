@@ -70,20 +70,20 @@ def main():
                     f'Вы зарегистрировались на игру {game}\n'
                     f'Ожидайте письмо с подтверждением на email: {data["QpRecord[email]"]}\n'
                 )
-                print(success_msg)
+                #print(success_msg)
                 logger.info(success_msg.strip())
 
                 send_message(f'Вы зарегистрировались на игру:\n{game}')
             else:
                 error_msg = f"Ошибка регистрации на игру {game}\n{link}\nKод ошибки: {alert}"
-                print(error_msg)
+                #print(error_msg)
                 logger.error(error_msg)
         else:
             already_msg = f"Вы уже зарегистрировались на игру: \n{game}\n"
-            print(already_msg)
+            #print(already_msg)
             logger.info(already_msg.strip())
 
-    print(f"\n{'-' * 79}")
+    #print(f"\n{'-' * 79}")
 
 
 if __name__ == "__main__":

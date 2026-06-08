@@ -18,7 +18,7 @@ def main():
 
         city = soup.find('option', attrs={'selected': True}).text.strip()
         logger.info("Город: %s", city)
-        print(f"\n{'-' * 79}\nГород: {city}\n")
+        #print(f"\n{'-' * 79}\nГород: {city}\n")
 
         for status in STATUS_DATA:
             get_game_status(soup, status)
@@ -26,20 +26,20 @@ def main():
         if available_games:
             logger.info("Найдено игр для записи: %d", len(available_games))
             header = f"\n{'-' * 79}\nИгры на которые можно записаться (также сохранены в файл available_games.json):\n"
-            print(header)
+            #print(header)
             logger.info(header.strip())
             for k, v in available_games.items():
                 entry = f"{k}:\n{v}\n"
-                print(entry)
+                #print(entry)
                 logger.info("Игра для записи:\n%s\nСсылка: %s", k, v)
         else:
             msg = "К сожалению нет игр на которые можно записаться"
             logger.info(msg)
-            print(f"\n{msg}")
+            #print(f"\n{msg}")
     except Exception as e:
         logger.exception("Ошибка при обработке расписания")
-        print(f"Ошибка: {e}")
-    print(f"\n{'-' * 79}")
+        #print(f"Ошибка: {e}")
+    #print(f"\n{'-' * 79}")
 
 
 if __name__ == "__main__":
