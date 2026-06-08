@@ -1,5 +1,6 @@
 name: Run every hour
 on:
+  push:
   schedule:
     - cron: "*/5 * * * *"
 env:
