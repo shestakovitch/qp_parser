@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 def main():
     if not available_games:
-        logger.info("Регистрация пропущена: нет доступных игр")
+        logger.info("Нет доступных игр")
         return
 
     with open("registered_games.json") as file:
