@@ -1,6 +1,15 @@
 name: Run every hour
 on:
   push:
+env:
+  BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+  CHAT_ID: ${{ secrets.CHAT_ID }}
+  TEAM_NAME="Полако №6"
+  CAPTAIN_NAME: ${{ secrets.CAPTAIN_NAME }}
+  EMAIL: ${{ secrets.EMAIL }}
+  PHONE: ${{ secrets.PHONE }}
+  NUMBER_OF_PLAYERS: ${{ secrets.NUMBER_OF_PLAYERS }}
+  TELEGRAM_NAME: ${{ secrets.TELEGRAM_NAME }}
 jobs:
   run_every_hour:
     runs-on: ubuntu-latest
