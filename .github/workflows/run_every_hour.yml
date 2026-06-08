@@ -1,0 +1,11 @@
+name: Run every hour
+on:
+  push:
+jobs:
+  run_every_hour:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v6
+      - name: Run App
+        run: python3 main.py
