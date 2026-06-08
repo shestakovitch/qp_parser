@@ -4,7 +4,7 @@ on:
 env:
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHAT_ID: ${{ secrets.CHAT_ID }}
-  TEAM_NAME="Полако №6"
+  TEAM_NAME: "${{ secrets.TEAM_NAME }}"
   CAPTAIN_NAME: ${{ secrets.CAPTAIN_NAME }}
   EMAIL: ${{ secrets.EMAIL }}
   PHONE: ${{ secrets.PHONE }}
