@@ -1,4 +1,4 @@
-name: Run every hour
+name: Quiz Game Monitor
 on:
   schedule:
     - cron: "15 */2 * * *"
