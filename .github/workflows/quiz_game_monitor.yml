@@ -1,7 +1,8 @@
 name: Quiz Game Monitor
 on:
-  schedule:
-    - cron: "15 */2 * * *"
+  workflow_dispatch:
+  #schedule:
+  #  - cron: "15 */2 * * *"
 env:
   BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
   CHAT_ID: ${{ secrets.CHAT_ID }}
