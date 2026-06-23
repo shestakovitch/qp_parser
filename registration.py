@@ -48,7 +48,8 @@ def main():
                 "QpRecord[game_id]": link.split("id=")[1],
                 "QpRecord[max_people_active]": "1",
                 "reservation": "",
-                "QpRecord[site_content_id]": ""
+                "QpRecord[site_content_id]": "",
+                "QpRecord[is_agreed_to_mailing]": "1"
             }
 
             logger.info("Регистрация на игру: %s", link)
